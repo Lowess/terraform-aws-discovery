@@ -28,14 +28,14 @@ In order to make this discovery module work, the following naming convention sho
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| aws_region |  | string | - | yes |
-| aws_region_code | The region code used to prefix resources, if any | string | `` | no |
-| ec2_security_groups | List of security groups you want to discover information about | list | `<list>` | no |
-| iam_role_names | List of IAM role names you want to discover information about | list | `<list>` | no |
-| image_names | List of AMI names you want to discover information about | list | `<list>` | no |
-| r53_hosted_zones | A list of strings of hosted zones, if any | list | `<list>` | no |
-| vpc_name | Name of the VPC you want to discover information about | string | - | yes |
-| vpc_subnets | List of subnets names you want to discover information about | list | `<list>` | no |
+| Name                | Description                                                    |  Type  | Default  | Required |
+|:--------------------|:---------------------------------------------------------------|:------:|:--------:|:--------:|
+| aws_region          |                                                                | string |    -     |   yes    |
+| aws_region_code     | The region code used to prefix resources, if any               | string |    ``    |    no    |
+| ec2_security_groups | List of security groups you want to discover information about |  list  | `<list>` |    no    |
+| iam_role_names      | List of IAM role names you want to discover information about  |  list  | `<list>` |    no    |
+| image_names         | List of AMI names you want to discover information about       |  list  | `<list>` |    no    |
+| r53_hosted_zones    | A list of strings of hosted zones, if any                      |  list  | `<list>` |    no    |
+| vpc_name            | Name of the VPC you want to discover information about         | string |    -     |   yes    |
+| vpc_subnets         | List of subnets names you want to discover information about   |  list  | `<list>` |    no    |
 
