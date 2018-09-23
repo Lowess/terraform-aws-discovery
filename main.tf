@@ -78,9 +78,7 @@ data "aws_route_table" "vpc_public_route_table_info" {
   vpc_id = "${data.aws_vpc.vpc.id}"
 
   tags {
-    Name = "${var.vpc_name}-public-${substr(element(data.aws_subnet.vpc_public_subnets_info.*.availability_zone, 0),
-      0,
-      length(element(data.aws_subnet.vpc_public_subnets_info.*.availability_zone, 0)) -1)}"
+    Name = "${var.vpc_name}-public"
   }
 }
 
