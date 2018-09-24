@@ -1,4 +1,4 @@
-# terraform-aws-discovery
+# :crystal_ball: terraform-aws-discovery
 
 ## Guidelines
 
