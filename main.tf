@@ -110,6 +110,7 @@ data "aws_security_group" "ec2_security_groups" {
 data "aws_ami" "ec2_amis" {
   count       = "${length(var.ec2_ami_names)}"
   most_recent = true
+  owners      = ["${var.ec2_ami_owners}"]
 
   filter {
     name   = "name"

@@ -41,3 +41,9 @@ variable "ec2_ami_names" {
   description = "List of AMI names you want to discover information about"
   default     = []
 }
+
+variable "ec2_ami_owners" {
+  type        = "string"
+  description = "Owner of the AMI"
+  default     = "750996176928"
+}
