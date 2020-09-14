@@ -2,47 +2,40 @@
 
 ## Guidelines
 
-In order to make this discovery module work, the following naming convention should be adopted:
-
----
-
-### Common variables referenced in naming standards
-
-| Variable              | RegExp                          | Example                                  |
-|:----------------------|:--------------------------------|:-----------------------------------------|
-| `<availability_zone>` | `[a-z]{2}-[a-z]{1,}-[1-2][a-f]` | `us-east-1a`, `us-west-2c`, `eu-west-1a` |
-
----
+In order to make use of this discovery module, please make sure that `discovery_tag_key` follows the naming convention defined in the tables bellow.
 
 ### VPC Resources Naming Standards
 
-| AWS Resource         | Resource Naming                          | Comment             | Example                      |
-|:---------------------|:-----------------------------------------|:--------------------|:-----------------------------|
-| VPC                  | `<vpc_name>-vpc`                         |                     | `mycloud`                    |
-| Private Subnets      | `<vpc_name>-private-<availability_zone>` | `Tag: Tier=private` | `mycloud-private-us-east-1b` |
-| Public Subnets       | `<vpc_name>-public-<availability_zone>`  | `Tag: Tier=public`  | `mycloud-public`             |
-| Private Route Tables | `<vpc_name>-private-<availability_zone>` |                     | `mycloud-private-us-east-1b` |
-| Public Route Tables  | `<vpc_name>-public`                      |                     | `mycloud-public`             |
-| Nat Gateway          | `<vpc_name>-nat-<availability_zone>`     |                     | `mycloud-nat-us-east-1b`     |
-| Internet Gateway     | `<vpc_name>-igw`                         |                     | `mycloud-igw`                |
+* The `<availability_zone>`  variable should follow AWS naming convention (`us-east-1a`, `us-west-2c`, `eu-west-1a`)
+
+| AWS Resource         | Resource Naming                          | Comment | Example                      |
+|----------------------|------------------------------------------|---------|------------------------------|
+| VPC                  | `<vpc_name>-vpc`                         |         | `mycloud`                    |
+| Private Subnets      | `<vpc_name>-private-<availability_zone>` |         | `mycloud-private-us-east-1b` |
+| Public Subnets       | `<vpc_name>-public-<availability_zone>`  |         | `mycloud-public`             |
+| Private Route Tables | `<vpc_name>-private-<availability_zone>` |         | `mycloud-private-us-east-1b` |
+| Public Route Tables  | `<vpc_name>-public`                      |         | `mycloud-public`             |
+| Nat Gateway          | `<vpc_name>-nat-<availability_zone>`     |         | `mycloud-nat-us-east-1b`     |
+| Internet Gateway     | `<vpc_name>-igw`                         |         | `mycloud-igw`                |
 
 ## Inputs
 
-| Name                | Description                                                    |  Type  |    Default     | Required |
-|---------------------|----------------------------------------------------------------|:------:|:--------------:|:--------:|
-| aws_region          |                                                                | string |       -        |   yes    |
-| aws_region_code     | The region code used to prefix resources, if any               | string |       ``       |    no    |
-| ec2_ami_names       | List of AMI names you want to discover information about       |  list  |    `<list>`    |    no    |
-| ec2_ami_owners      | Owner of the AMI                                               | string | `750996176928` |    no    |
-| ec2_security_groups | List of security groups you want to discover information about |  list  |    `<list>`    |    no    |
-| iam_role_names      | List of IAM role names you want to discover information about  |  list  |    `<list>`    |    no    |
-| r53_hosted_zones    | A list of strings of hosted zones, if any                      |  list  |    `<list>`    |    no    |
-| vpc_name            | Name of the VPC you want to discover information about         | string |       -        |   yes    |
-| vpc_subnets         | List of subnets names you want to discover information about   |  list  |    `<list>`    |    no    |
+| Name                | Description                                                    | Type   | Default        | Required |
+|---------------------|----------------------------------------------------------------|--------|----------------|----------|
+| discovery_tag_key   | The tag key on which data lookups should be made               | string | `Name`         |          |
+| aws_region          | The aws region where resources are located in                  | string | -              | yes      |
+| aws_region_code     | The region code used to prefix resources, if any               | string | ``             | no       |
+| ec2_ami_names       | List of AMI names you want to discover information about       | list   | `<list>`       | no       |
+| ec2_ami_owners      | Owner of the AMI                                               | string | `750996176928` | no       |
+| ec2_security_groups | List of security groups you want to discover information about | list   | `<list>`       | no       |
+| iam_role_names      | List of IAM role names you want to discover information about  | list   | `<list>`       | no       |
+| r53_hosted_zones    | A list of strings of hosted zones, if any                      | list   | `<list>`       | no       |
+| vpc_name            | Name of the VPC you want to discover information about         | string | -              | yes      |
+| vpc_subnets         | List of subnets names you want to discover information about   | list   | `<list>`       | no       |
 
 ## Outputs example
 
-```
+```ini
 aws_account_id = 647925xxxxxx
 aws_account_json = {
   account_id = 647925684058
