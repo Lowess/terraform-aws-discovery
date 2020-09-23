@@ -12,7 +12,7 @@ In order to make use of this discovery module, please make sure that `discovery_
 |----------------------|------------------------------------------|---------|------------------------------|
 | VPC                  | `<vpc_name>-vpc`                         |         | `mycloud`                    |
 | Private Subnets      | `<vpc_name>-private-<availability_zone>` |         | `mycloud-private-us-east-1b` |
-| Public Subnets       | `<vpc_name>-public-<availability_zone>`  |         | `mycloud-public`             |
+| Public Subnets       | `<vpc_name>-public-<availability_zone>`  |         | `mycloud-public-us-east-1b`  |
 | Private Route Tables | `<vpc_name>-private-<availability_zone>` |         | `mycloud-private-us-east-1b` |
 | Public Route Tables  | `<vpc_name>-public`                      |         | `mycloud-public`             |
 | Nat Gateway          | `<vpc_name>-nat-<availability_zone>`     |         | `mycloud-nat-us-east-1b`     |
