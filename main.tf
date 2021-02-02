@@ -11,7 +11,7 @@ data "aws_caller_identity" "current" {}
 ### VPC
 
 data "aws_vpc" "vpc" {
-  tags = map("${var.discovery_tag_key}", "${var.vpc_name}-vpc")
+  tags = map(var.discovery_tag_key, "${var.vpc_name}-vpc")
 }
 
 data "aws_availability_zones" "azs" {
