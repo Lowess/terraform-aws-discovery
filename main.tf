@@ -62,7 +62,7 @@ data "aws_subnet" "vpc_subnets" {
   vpc_id   = data.aws_vpc.vpc.id
 
   tags = {
-    "${var.discovery_tag_key}" = each.value
+    (var.discovery_tag_key) = each.value
   }
 }
 
@@ -79,7 +79,7 @@ data "aws_route_table" "vpc_public_route_table_info" {
   vpc_id = data.aws_vpc.vpc.id
 
   tags = {
-    "${var.discovery_tag_key}" = "${var.vpc_name}-public"
+    (var.discovery_tag_key) = "${var.vpc_name}-public"
   }
 }
 

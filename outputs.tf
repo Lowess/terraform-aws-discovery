@@ -1,8 +1,8 @@
 ## Account outputs
 output "aws_account_json" {
   value = map(
-    "account_id", "${data.aws_caller_identity.current.account_id}",
-    "arn", "${data.aws_caller_identity.current.arn}"
+    "account_id", data.aws_caller_identity.current.account_id,
+    "arn", data.aws_caller_identity.current.arn
   )
 }
 
