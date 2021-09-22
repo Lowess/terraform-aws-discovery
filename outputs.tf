@@ -1,9 +1,9 @@
 ## Account outputs
 output "aws_account_json" {
-  value = map(
-    "account_id", data.aws_caller_identity.current.account_id,
-    "arn", data.aws_caller_identity.current.arn
-  )
+  value = tomap({
+    "account_id" = data.aws_caller_identity.current.account_id
+    "arn"        = data.aws_caller_identity.current.arn
+  })
 }
 
 output "aws_account_id" {
@@ -12,11 +12,11 @@ output "aws_account_id" {
 
 ## VPC outputs
 output "vpc_json" {
-  value = map(
-    "id", data.aws_vpc.vpc.id,
-    "cidr_block", data.aws_vpc.vpc.cidr_block,
-    "name", data.aws_vpc.vpc.tags.Name
-  )
+  value = tomap({
+    "id"         = data.aws_vpc.vpc.id
+    "cidr_block" = data.aws_vpc.vpc.cidr_block
+    "name"       = data.aws_vpc.vpc.tags.Name
+  })
 }
 
 output "vpc_id" {

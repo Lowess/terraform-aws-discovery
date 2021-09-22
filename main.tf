@@ -11,7 +11,7 @@ data "aws_caller_identity" "current" {}
 ### VPC
 
 data "aws_vpc" "vpc" {
-  tags = map(var.discovery_tag_key, "${var.vpc_name}-vpc")
+  tags = tomap({ "${var.discovery_tag_key}" = "${var.vpc_name}-vpc" })
 }
 
 data "aws_availability_zones" "azs" {
@@ -89,10 +89,9 @@ data "aws_security_group" "ec2_security_groups" {
   for_each = toset(var.ec2_security_groups)
   vpc_id   = data.aws_vpc.vpc.id
 
-  tags = map(
-    var.discovery_tag_key,
-    each.value
-  )
+  tags = tomap({
+    "${var.discovery_tag_key}" = each.value
+  })
 }
 
 ### AMI
