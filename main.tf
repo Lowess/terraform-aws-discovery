@@ -27,7 +27,7 @@ data "aws_subnet_ids" "vpc_private_subnets" {
   filter {
     name = "tag:${var.discovery_tag_key}"
     values = [
-      for az in data.aws_availability_zones.azs.names : "${var.vpc_name}-private-${az}"
+      for az in data.aws_availability_zones.azs.names : "${var.vpc_name}-private-${var.aws_region}${az}"
     ]
   }
 }
@@ -45,7 +45,7 @@ data "aws_subnet_ids" "vpc_public_subnets" {
   filter {
     name = "tag:${var.discovery_tag_key}"
     values = [
-      for az in data.aws_availability_zones.azs.names : "${var.vpc_name}-public-${az}"
+      for az in data.aws_availability_zones.azs.names : "${var.vpc_name}-public-${var.aws_region}${az}"
     ]
   }
 }
