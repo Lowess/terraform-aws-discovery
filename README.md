@@ -4,6 +4,8 @@
 
 In order to make use of this discovery module, please make sure that `discovery_tag_key` follows the naming convention defined in the tables bellow.
 
+> ⚠️ The module already adds `-vpc` suffix to your `vpc_name`. Make sure to just provide the name of your vpc as an input to the module
+
 ### VPC Resources Naming Standards
 
 * The `<availability_zone>`  variable should follow AWS naming convention (`us-east-1a`, `us-west-2c`, `eu-west-1a`)
