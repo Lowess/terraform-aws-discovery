@@ -36,7 +36,7 @@ data "aws_subnets" "vpc_private_subnets" {
 
 # VPC private tier subnets azs information
 data "aws_subnet" "vpc_private_subnets_info" {
-  for_each = data.aws_subnets.vpc_private_subnets.ids
+  for_each = toset(data.aws_subnets.vpc_private_subnets.ids)
   id       = each.value
 }
 
@@ -56,7 +56,7 @@ data "aws_subnets" "vpc_public_subnets" {
 
 # VPC public tier subnets azs information
 data "aws_subnet" "vpc_public_subnets_info" {
-  for_each = data.aws_subnets.vpc_public_subnets.ids
+  for_each = toset(data.aws_subnets.vpc_public_subnets.ids)
   id       = each.value
 }
 
@@ -74,7 +74,7 @@ data "aws_subnet" "vpc_subnets" {
 
 # VPC private route table information
 data "aws_route_table" "vpc_private_route_table_info" {
-  for_each  = data.aws_subnets.vpc_private_subnets.ids
+  for_each  = toset(data.aws_subnets.vpc_private_subnets.ids)
   subnet_id = each.value
 }
 
