@@ -28,7 +28,7 @@ In order to make use of this discovery module, please make sure that `discovery_
 | aws_region          | The aws region where resources are located in                  | string | -              | yes      |
 | aws_region_code     | The region code used to prefix resources, if any               | string | ``             | no       |
 | ec2_ami_names       | List of AMI names you want to discover information about       | list   | `<list>`       | no       |
-| ec2_ami_owners      | Owner of the AMI                                               | string | `750996176928` | no       |
+| ec2_ami_owners      | Owner of the AMI                                               | string | `self`         | no       |
 | ec2_security_groups | List of security groups you want to discover information about | list   | `<list>`       | no       |
 | iam_role_names      | List of IAM role names you want to discover information about  | list   | `<list>`       | no       |
 | r53_hosted_zones    | A list of strings of hosted zones, if any                      | list   | `<list>`       | no       |

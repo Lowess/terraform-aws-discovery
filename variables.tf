@@ -51,6 +51,6 @@ variable "ec2_ami_names" {
 variable "ec2_ami_owners" {
   type        = string
   description = "Owner of the AMI"
-  default     = "180965419374"
+  default     = "self"
 }
 
